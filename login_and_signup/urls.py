@@ -1,3 +1,4 @@
+# login_and_signup/urls
 """nusxchange URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,6 +19,7 @@ from django.contrib import admin
 from login_and_signup import views
 
 urlpatterns = [
+	url(r'^$', views.home, name='home'),
     url(r'^admin/', admin.site.urls),
     url(r'^register/$', views.UserFormView.as_view(), name = 'register')
 ]

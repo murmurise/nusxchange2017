@@ -1,3 +1,4 @@
+# login_and_signup/views
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render, redirect
@@ -10,7 +11,7 @@ from .forms import UserForm
 
 @login_required
 def home(request):
-    return render(request, 'login_and_signup/home.html')
+    return redirect('http://localhost:8000/settings')
 
 # def login(request):
 #     return render(request, 'login_and_signup/login.html')
@@ -39,7 +40,7 @@ class UserFormView(View):
 			if user is not None:
 				if user.is_active:
 					login(request, user)
-					return redirect('login_and_signup:home')
+					return redirect('http://localhost:8000/settings')
 
 		return render (request, self.template_name, {'form': form})
 
@@ -49,7 +50,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password1')
+            raw_password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect('home')

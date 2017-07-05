@@ -1,3 +1,4 @@
+# nusxchange/urls
 """nusxchange URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -24,13 +25,13 @@ from login_and_signup import views as core_views
 
 urlpatterns = [
     url(r'^$', core_views.home, name='home'),
-    url(r'^login/$', auth_views.login, name='login'),
+    # url(r'^login/$', auth_views.login, name='login'), 
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
 
     url(r'^login/', include('login_and_signup.urls', namespace='login_and_signup')),
     url(r'^oauth/', include('social_django.urls', namespace='social')), 
-    url(r'^settings/', include('profile_management.urls')) #
+    url(r'^settings/', include('profile_management.urls')) 
     # url(r'^profile/',include()) #profile of other users
     # url(r'^core/',) #core app for looking up other users
     # url(r'^home/',) #intro to the app
