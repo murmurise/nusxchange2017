@@ -25,7 +25,12 @@
           </div>
         </div>
         <div class="profile-settings-holder">
-
+                <form method="post">
+                  {% csrf_token %}
+                  {{ user_form.as_p }}
+                  {{ profile_form.as_p }}
+                  <button type="submit">Save changes</button>
+                </form>
           <form class="form-horizontal profile-update">
             <div class="form-group clearfix">
               <div class="col-sm-12 control-label">

@@ -144,9 +144,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# LOGIN_URL = 'login'
-# LOGOUT_URL = 'logout'
-# LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+# LOGIN_REDIRECT_URL = 'settings'
+
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False

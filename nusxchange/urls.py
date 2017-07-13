@@ -24,17 +24,16 @@ from login_and_signup import views as core_views
 # LOGIN_REDIRECT_URL = 'home'
 
 urlpatterns = [
+    # url(r'^login/', include('login_and_signup.urls')),
     url(r'^$', core_views.home, name='home'),
-    # url(r'^login/$', auth_views.login, name='login'), 
+    url(r'^login/', include('login_and_signup.urls', namespace='login')), 
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
-
-    url(r'^login/', include('login_and_signup.urls', namespace='login_and_signup')),
     url(r'^oauth/', include('social_django.urls', namespace='social')), 
-    url(r'^settings/', include('profile_management.urls')) 
+    url(r'^settings/', include('profile_management.urls', namespace='settings')),
     # url(r'^profile/',include()) #profile of other users
     # url(r'^core/',) #core app for looking up other users
     # url(r'^home/',) #intro to the app
-
+    url(r'^accounts/profile/', core_views.loggedin, name = 'loggedin') 
 
 ]

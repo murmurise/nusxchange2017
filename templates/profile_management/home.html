@@ -1,0 +1,11 @@
+{%extends 'admin/base.html'%}
+{% block content %}
+	<h2>Homepage</h2>
+		<p>Hello {{ user.username }}!</p>
+	<ul>
+		<li>Username: {{ user.username }}</li>
+		<li>Location: {{ user.profile.location }}</li>
+		<li>Birth Date: {{ user.profile.birth_date }}</li>
+		<button type="submit"><a href="http://localhost:8000/logout">logout</</a></button>
+	</ul>
+{% endblock %}

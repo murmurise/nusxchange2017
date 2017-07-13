@@ -17,9 +17,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from login_and_signup import views
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
-	url(r'^$', views.home, name='home'),
-    url(r'^admin/', admin.site.urls),
-    url(r'^register/$', views.UserFormView.as_view(), name = 'register')
+	url(r'^$', auth_views.login, name='home'),
+    url(r'^register/$', views.signup, name = 'register')
 ]
