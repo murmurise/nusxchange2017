@@ -8,7 +8,7 @@ from django.contrib.auth import login as auth_login
 
 from django.views import generic
 from django.views.generic import View
-from login_and_signup.forms import  UserCreationForm
+from login_and_signup.forms import  UserCreationForm, SignUpForm
 
 # @login_required
 def home(request):
@@ -16,11 +16,8 @@ def home(request):
 
 def login(request):
     auth_login(request)
-    return render(request, 'profile_management/home.html')
+    # return render(request, 'profile_management/me.html')
 
-# after logging in, user is redirected to the settings page
-def loggedin (request):
-    return redirect('http://localhost:8000/settings/')
 
 # class UserFormView(View):
 # 	form_class = UserForm
@@ -65,17 +62,18 @@ def update_profile(request, user_id):
     user.profile.bio = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit...'
     user.save()
     
-def signup(request):
-    logout(request)
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            raw_password = form.cleaned_data.get('password')
-            age = form.cleaned_data.get('age')
-            user = authenticate(username=username, password=raw_password)
-            return login(request)
-    else:
-        form = UserCreationForm()
-    return render(request, 'login_and_signup/newaccount.html', {'form': form})
+# def signup(request):
+#     if request.method == 'POST':
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             user.refresh_from_db()# load the profile instance created by the signal
+#             user.profile.birth_date = form.cleaned_data.get('birth_date')
+#             user.save()
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(username=username, password=raw_password)
+#             auth_login(request, user)
+#             return redirect('/me')
+#     else:
+#         form = SignUpForm()
+#     return render(request, 'login_and_signup/newaccount.html', {'form': form})

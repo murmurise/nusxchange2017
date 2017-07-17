@@ -1,4 +1,4 @@
-# login_and_signup/urls
+# signup/urls
 """nusxchange URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -14,12 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
-from login_and_signup import views
-from django.contrib.auth import views as auth_views
+from signup import views 
 
+# LOGIN_URL = 'login'
+# LOGOUT_URL = 'logout'
+# LOGIN_REDIRECT_URL = 'home'
 
 urlpatterns = [
-	url(r'^$', auth_views.login,{'template_name': 'login_and_signup/login.html'}, name='home'),
+    url(r'^$', views.home, name='home')
+
 ]

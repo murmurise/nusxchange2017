@@ -44,7 +44,8 @@ INSTALLED_APPS = [
 
     'nusxchange',
     'social.apps',
-    'login_and_signup'
+    'login_and_signup',
+    'signup'
 ]
 
 MIDDLEWARE = [

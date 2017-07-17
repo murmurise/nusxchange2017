@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from login_and_signup import views as core_views
+from profile_management import views as profile_view
 
 # LOGIN_URL = 'login'
 # LOGOUT_URL = 'logout'
@@ -26,7 +27,8 @@ from login_and_signup import views as core_views
 urlpatterns = [
     # url(r'^login/', include('login_and_signup.urls')),
     url(r'^$', core_views.home, name='home'),
-    url(r'^login/', include('login_and_signup.urls', namespace='login')), 
+    url(r'^login/', include('login_and_signup.urls', namespace='login')),
+    url(r'^signup/', include('signup.urls', namespace='signup')),
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^oauth/', include('social_django.urls', namespace='social')), 
@@ -34,6 +36,6 @@ urlpatterns = [
     # url(r'^profile/',include()) #profile of other users
     # url(r'^core/',) #core app for looking up other users
     # url(r'^home/',) #intro to the app
-    url(r'^accounts/profile/', core_views.loggedin, name = 'loggedin') 
+    url(r'^accounts/profile/', profile_view.home, name = 'home') 
 
 ]
