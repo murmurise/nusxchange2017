@@ -17,7 +17,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from login_and_signup import views as core_views
+from login_and_signup import views as login_views
 from profile_management import views as profile_view
 
 # LOGIN_URL = 'login'
@@ -25,17 +25,12 @@ from profile_management import views as profile_view
 # LOGIN_REDIRECT_URL = 'home'
 
 urlpatterns = [
-    # url(r'^login/', include('login_and_signup.urls')),
-    url(r'^$', core_views.home, name='home'),
-    url(r'^login/', include('login_and_signup.urls', namespace='login')),
-    url(r'^signup/', include('signup.urls', namespace='signup')),
-    url(r'^logout/$', auth_views.logout, name='logout'),
-    url(r'^admin/', admin.site.urls),
+    url(r'^$', login_views.home, name='index'), #intro page
+    url(r'^login/', auth_views.login, name='login',
+        kwargs={'redirect_authenticated_user': True, 'template_name': 'login_and_signup/login.html'} ), #login page
+    url(r'^signup/', include('signup.urls', namespace='signup')), #sign up page
+    url(r'^logout/$', login_views.logout, name='logout'), #logout and redirect to the intro page
     url(r'^oauth/', include('social_django.urls', namespace='social')), 
-    url(r'^settings/', include('profile_management.urls', namespace='settings')),
-    # url(r'^profile/',include()) #profile of other users
-    # url(r'^core/',) #core app for looking up other users
-    # url(r'^home/',) #intro to the app
-    url(r'^accounts/profile/', profile_view.home, name = 'home') 
-
+    url(r'^me/', profile_view.home, name = 'profile'),
+    url(r'^admin/', admin.site.urls), 
 ]

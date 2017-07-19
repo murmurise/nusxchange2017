@@ -17,9 +17,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from login_and_signup import views
-from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-	url(r'^$', auth_views.login,{'template_name': 'login_and_signup/login.html'}, name='home'),
+	url(r'^$', views.login, name = 'home'),
 ]

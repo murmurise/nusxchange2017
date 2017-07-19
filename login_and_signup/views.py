@@ -3,22 +3,21 @@
 from __future__ import unicode_literals
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth import login as auth_login
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as auth_login, logout as auth_logout
 
 from django.views import generic
 from django.views.generic import View
 from login_and_signup.forms import  UserCreationForm, SignUpForm
 
-# @login_required
+#intro page
 def home(request):
     return render(request, 'login_and_signup/home.html')
 
-def login(request):
-    auth_login(request)
-    # return render(request, 'profile_management/me.html')
-
-
+@login_required
+def logout(request):
+    auth_logout(request)
+    return redirect ('home')
 # class UserFormView(View):
 # 	form_class = UserForm
 # 	template_name = 'login_and_signup/newaccount.html'
