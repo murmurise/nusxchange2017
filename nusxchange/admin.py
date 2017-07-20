@@ -16,9 +16,13 @@ class ProfileInline(admin.StackedInline):
 class CustomUserAdmin(UserAdmin):
     inlines = (ProfileInline, )     
     #overriding the list_display attribute.
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_staff', 'get_accomodation', 'get_school') 
+    list_display = ('username', 'is_staff', 'get_accomodation', 'get_school', 'title') 
+
     list_select_related = ('profile', )
 
+    def title(self,instance):
+        return instance.profile.title
+        
     def get_accomodation(self, instance):
         return instance.profile.accomodation
     get_accomodation.short_description = 'Accomodation'

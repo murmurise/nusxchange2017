@@ -25,12 +25,12 @@ from profile_management import views as profile_view
 # LOGIN_REDIRECT_URL = 'home'
 
 urlpatterns = [
-    url(r'^$', login_views.home, name='index'), #intro page
+    url(r'^$', login_views.home, name='home'), #intro page
     url(r'^login/', auth_views.login, name='login',
         kwargs={'redirect_authenticated_user': True, 'template_name': 'login_and_signup/login.html'} ), #login page
     url(r'^signup/', include('signup.urls', namespace='signup')), #sign up page
     url(r'^logout/$', login_views.logout, name='logout'), #logout and redirect to the intro page
     url(r'^oauth/', include('social_django.urls', namespace='social')), 
-    url(r'^me/', profile_view.home, name = 'profile'),
+    url(r'^me/', include('profile_management.urls', namespace = 'profile')),
     url(r'^admin/', admin.site.urls), 
 ]

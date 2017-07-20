@@ -1,7 +1,7 @@
 # signup/views
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from login_and_signup.forms import  UserCreationForm, SignUpForm
+from login_and_signup.forms import  SignUpForm
 from django.contrib.auth import login as auth_login
 from django.views.generic import View
 from django.contrib.auth import authenticate
@@ -17,7 +17,7 @@ def home(request):
             user.profile.birth_date = form.cleaned_data.get('birth_date')
             user.save()
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=username, password=raw_password)
+            user = authenticate(username=user.username, password=raw_password)
             auth_login(request, user)
             return redirect('/me')
     else:

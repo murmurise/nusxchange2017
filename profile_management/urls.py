@@ -4,4 +4,5 @@ from profile_management import views
 
 urlpatterns = [
 	url(r'^', views.home, name='home'),
+	url(r'^settings/$', views.update_profile,name='settings')
 ]
