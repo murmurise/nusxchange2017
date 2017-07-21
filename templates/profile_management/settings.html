@@ -1,6 +1,13 @@
-<form method="post">
-  {% csrf_token %}
-  {{ user_form.as_p }}
-  {{ profile_form.as_p }}
-  <button type="submit">Save changes</button>
-</form>
+{%extends 'nusxchange/base.html'%}
+{% block content %}
+	<h2>Homepage</h2>
+		<p>Hello {{ user.username }}!</p>
+	
+	<form method="post">
+  	{% csrf_token %}
+  	{{ user_form.as_p }}
+ 	{{ profile_form.as_p }}
+  	<button type="submit">Save changes</button>
+	</form>
+	
+{% endblock %}

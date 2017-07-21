@@ -1,4 +1,4 @@
-from config import *
+from config import * #to separate configuration from settings. conceal Key and App Secret
 
 # import django
 # django.setup()
@@ -29,7 +29,7 @@ SECRET_KEY = '&1ma9g!1p^b5i96(0u)p@tx@mt95$e3_uzgcn@gjq@x78%!3*)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [u'192.168.3.119', u'localhost',]
 
 
 # Application definition
@@ -43,9 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'nusxchange',
-    'social.apps',
+    'social_django',
     'login_and_signup',
-    'signup'
+    'signup',
+    'profile_management',
+    'user_profile',
+
 ]
 
 MIDDLEWARE = [
@@ -87,9 +90,8 @@ TEMPLATES = [
 
 
 AUTHENTICATION_BACKENDS = (
-    'social.backends.facebook.FacebookOAuth2',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -144,8 +146,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-# LOGOUT_URL = ''
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = '/me'
+
 SOCIAL_AUTH_LOGIN_ERROR_URL = '/login'
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/me'
 SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+# SOCIAL_AUTH_GITHUB_KEY = '5ccfa540c8f189f6bf8e'
+# SOCIAL_AUTH_GITHUB_SECRET = 'ce9e1825ddf0a9e5d3297cca457f05e14ebcd953'
+
+

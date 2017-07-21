@@ -32,5 +32,7 @@ urlpatterns = [
     url(r'^logout/$', login_views.logout, name='logout'), #logout and redirect to the intro page
     url(r'^oauth/', include('social_django.urls', namespace='social')), 
     url(r'^me/', include('profile_management.urls', namespace = 'profile')),
+    url(r'^profile/', include('user_profile.urls')), #to visit others' profiles
     url(r'^admin/', admin.site.urls), 
+
 ]

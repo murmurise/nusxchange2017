@@ -8,7 +8,6 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 
 from django.views import generic
 from django.views.generic import View
-from login_and_signup.forms import  UserCreationForm, SignUpForm
 
 #intro page
 def home(request):
@@ -55,12 +54,7 @@ def logout(request):
 
 # 		return render (request, self.template_name, {'form': form})
 
-    
-def update_profile(request, user_id):
-    user = User.objects.get(pk=user_id)
-    user.profile.bio = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit...'
-    user.save()
-    
+
 # def signup(request):
 #     if request.method == 'POST':
 #         form = SignUpForm(request.POST)

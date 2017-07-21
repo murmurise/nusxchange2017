@@ -13,4 +13,25 @@
   <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a><br>
   <a href="{% url 'social:begin' 'twitter' %}">Login with Twitter</a><br>
   <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1281184072010977',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();   
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 {% endblock %}

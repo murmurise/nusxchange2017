@@ -23,11 +23,12 @@ class Profile(models.Model):
     sph = 12
     spp = 13
     yale = 14
+    oth = 15
     SCHOOL_CHOICES = (
         (soc, 'School of Computing'),
-        (fass, 'Faculty of Social Science'),
+        (fass, 'Faculty of Arts & Social Science'),
         (fos, 'Faculty of Science'),
-        (biz, 'Business and '),
+        (biz, 'Business and Accountancy'),
         (dent, 'Dentistry'),
         (sde, 'Design & Environment'),
         (duke, 'Duke-NUS'),
@@ -39,28 +40,33 @@ class Profile(models.Model):
         (spp, 'Public Policy'),
         (fos, 'Science'),
         (yale, 'Yale-NUS'),
+        (oth, 'Others'),
         )
     TEMASEK='TH'
     EUSOFF='EH'
     CINNAMON='CC'
     TEMBUSU='TC'
-    OTHER='OT'
+    OFFCAMPUS='OC'
     ACCOMODATION_CHOICES = (
         (TEMASEK, 'Temasek Hall'),
         (EUSOFF, 'Eusoff Hall'),
         (CINNAMON, 'Cinnamon College'),
         (TEMBUSU, 'Tembusu College'),
-        (OTHER, 'Others')
+        (OFFCAMPUS, 'Off-Campus')
         )
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, null = False, blank=True )
     accomodation = models.CharField(
-        max_length=2, blank=False, default = OTHER)
+        max_length=2, 
+        blank=False, 
+        default = OFFCAMPUS,
+        choices = ACCOMODATION_CHOICES,
+        )
     birth_date = models.DateField(null=True, blank=False)
     school = models.PositiveSmallIntegerField(
         choices = SCHOOL_CHOICES, 
         blank = False,
-        default = fass,
+        default = oth,
         )
     nickname = models.CharField(max_length=30, null=False, blank=True)
     matric_num = models.CharField(
@@ -69,25 +75,21 @@ class Profile(models.Model):
         default = 'A0000000Z',)
     age = models.CharField(max_length=3, blank=False, default=18)
 
-    TITLE_CHOICES = (
-        ('MR', 'Mr.'),
-        ('MRS', 'Mrs.'),
-        ('MS', 'Ms.'),
-    )
-    title = models.CharField(
+    gender = models.CharField(
         max_length=3, 
-        choices=TITLE_CHOICES, 
-        default='MR',
+        choices = (('F', 'Female'),('M', 'Male'),), 
+        default='M',
         )
     major = models.CharField(max_length=30, null = False, blank=True)
     
 
     NATIONALITY_CHOICES=(
-        ('CN', 'China'),
+        ('CN',  'China'),
         ('SG', 'Singapore'),
         ('OT', 'Others'),
         ) #tbc
     nationality = models.CharField(
+        choices = NATIONALITY_CHOICES,
         max_length=2, 
         blank=False, 
         default='OT',
@@ -109,7 +111,7 @@ class ProfileForm (ModelForm):
         'nickname', 
         'matric_num', 
         'age', 
-        'title', 
+        'gender', 
         'major', 
         'nationality',
         'interest',
