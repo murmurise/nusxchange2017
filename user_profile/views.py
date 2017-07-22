@@ -8,4 +8,4 @@ from django.urls import reverse
 
 def profile(request,username):
     user = User.objects.get(username=username)
-    return render(request, 'profile_management/home.html', {'user': user})
+    return render(request, 'user_profile/home.html', {'user': user})

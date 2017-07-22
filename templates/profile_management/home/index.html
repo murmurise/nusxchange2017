@@ -1,0 +1,93 @@
+<!-- this page gives user a quick glace of his profile. -->
+{%extends 'nusxchange/base.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>#1515 - Profile Card</title>
+  
+  
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'profile_management/style.css' %}" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"> -->
+
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+  <figure class="snip1515 col-sm-6">
+    <div class="profile-image">
+      <img src="{{ user.profile.profile_pic.url }}" "/>
+    </div>
+  
+  <figcaption>
+<!--fname+lastname, or username -->
+<!-- priority: nickname > fname + lname(optional) > username -->
+    <h3 id ="username"> Hello, 
+      {%if user.profile.nickname%}
+        {{user.profile.nickname}} {{user.first_name}}
+      {%elif user.first_name%}
+        {{user.first_name}} {{user.last_name}}
+      {% else %}
+        {{user.username}}
+      {%endif%}!
+    </h3>
+<!-- major+faculty+univeristy -->
+    <h4>
+      {% if user.profile.major %}{{user.profile.major}}{% endif %}
+      <br>{% if user.profile.school %}{{ user.profile.get_school_display}} {% endif %}
+      <br> {% if user.profile.pu %}{{ user.profile.pu}}{% endif %}
+    </h4><br>
+<!-- user bio -->
+    {% if user.profile.bio %}
+      <div class="user-bio">
+        <p>{{user.profile.bio }}</p> <br>
+      </div>
+    {% else %} <p>I'm a ninja. </p> <br>
+    {% endif %}
+<!-- other profile fields -->
+    <div class="profile-fields">
+      <p>Accomodation: {{ user.profile.get_accomodation_display }}</p>
+      <p>Birth Date: {{ user.profile.birth_date }}</p>
+      <p>School: {{ user.profile.get_school_display}}</p>
+      <p>Nationality: {{ user.profile.get_nationality_display }}</p>
+    </div>
+
+<!-- social media links -->
+<!-- if connected, show who the user is connected as, with icon being coloured. user can click thru -->
+    <div class="icons">
+        {% if facebook_login %}
+          <i class="ion-social-facebook"></i> 
+          <p>Connected as <a href="https://facebook.com/{{ facebook_login.extra_data.id }}/" target="_blank">{{ facebook_login.extra_data.id }}</a></p>
+        {% else %} <!-- if not connected, show the icon as grey -->
+          <i class="ion-social-facebook disconnected-social" ></i>
+        {% endif %}
+
+        {% if twitter_login %}
+          <i class="ion-social-twitter"></i></a> 
+          <p>Connected as <a href="https://twitter.com/{{ twitter_login.extra_data.access_token.screen_name }}/" target="_blank">@{{ twitter_login.extra_data.access_token.screen_name }}</a></p>
+        {% else %}
+          <i class="ion-social-twitter disconnected-social" ></i>
+        {% endif %}
+    </div>
+<!-- logout nad change setting buttons -->
+    <div class="row">
+        <a href="{% url 'logout'%}"><button class="fill" type="submit">Logout</a></button>
+
+        <a href="{% url 'profile:settings'%}"><button class="fill" type="submit">Settings</a></button>
+    </div>
+  </figcaption>
+</figure>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+    {% load static %}
+    <script src="{% static 'profile_management/index.js' %}"></script>
+</div>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

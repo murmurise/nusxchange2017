@@ -1,0 +1,76 @@
+<!-- user_profile/home -->
+{%extends 'nusxchange/base.html'%}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Card</title>
+  
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'user_profile/style.css' %}" />
+  
+</head>
+
+<body>
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+  <figure class="snip1515 col-sm-6">
+    <div class="profile-image">
+      <img src="{{ user.profile.profile_pic.url}}" /></div>
+    <figcaption>
+  <!--fname+lastname, or username -->
+      <h3 id ="username">
+      {%if user.profile.nickname%}
+        {{user.profile.nickname}} {{user.first_name}}
+      {%elif user.first_name%}
+        {{user.first_name}} {{user.last_name}}
+      {% else %}
+        {{user.username}}
+      {%endif%}
+      </h3>
+  <!-- major+faculty+univeristy -->
+      <h4>
+        {% if user.profile.major %}{{user.profile.major}}{% endif %}
+        <br>{% if user.profile.school %}{{ user.profile.get_school_display}} {% endif %}
+        <br> {% if user.profile.pu %}{{ user.profile.pu}}{% endif %}
+      </h4><br>
+  <!-- user bio. display if there's any -->
+    {% if user.profile.bio %}
+      <div class="user-bio">
+        {{user.profile.bio }}</p>
+      </div><br>
+    {% endif %}
+  <!-- other profile fields -->
+      <div class="profile-fields">
+        <p>Accomodation: {{ user.profile.get_accomodation_display }}</p>
+        <!-- if there is user age, display age instead of birth date -->
+        {%if user.profile.age is None%}<p>Birth Date: {{ user.profile.birth_date }}</p> 
+        {%else%} <p>Age: {{ user.profile.age }}</p> {% endif %}
+        <p>School: {{ user.profile.get_school_display}}</p>
+        <p>Nationality: {{ user.profile.get_nationality_display }}</p>
+      </div>
+
+  <!-- social media links -->
+      <div class="icons">
+        {% if facebook_login %}
+          <a href="{{social.uid}}"> <i class="ion-social-facebook"></i></a>
+        {% endif %}
+        {% if twitter_login %}
+          <a href="{{social.uid}}"> <i class="ion-social-twitter"></i></a> 
+      {% endif %}
+    </div>
+    </figcaption>
+  </figure>
+
+    {% load static %}
+  <script src="{% static 'user_profile/index.js' %}"></script>
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+</div>
+</div>
+</div>
+</body>
+</html>
+{% endblock %}

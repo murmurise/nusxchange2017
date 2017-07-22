@@ -1,29 +1,16 @@
+<!-- this file is not in use -->
+
 {%extends 'nusxchange/base.html'%}
 {% block content %}
 	<h2>Homepage</h2>
-		<p> - {{ user.username }}</p>
+		<p> Hello, {{ user.username }}!</p>
 	<ul>
 		<li>Username: {{ user.username }}</li>
 		<li>Location: {{ user.profile.location }}</li>
 		<li>Birth Date: {{ user.profile.birth_date }}</li>
 		<li>School: {{ user.profile.get_school_display}}</li>
 		<li>Nationality: {{ user.profile.get_nationality_display }}</li>
-
-		 <h3>GitHub</h3>
-  {% if github_login %}
-    <p>Connected as <a href="https://github.com/{{ github_login.extra_data.login }}/" target="_blank">{{ github_login.extra_data.login }}</a></p>
-    {% if can_disconnect %}
-      <form method="post" action="{% url 'social:disconnect' 'github' %}">
-        {% csrf_token %}
-        <button type="submit">Disconnect from GitHub</button>
-      </form>
-    {% else %}
-      <button type="button" disabled>Disconnect from GitHub</button>
-      <p style="color: red">You must <a href="{% url 'password' %}">define a password</a> for your account before disconnecting from Github.</p>
-    {% endif %}
-  {% else %}
-    <a href="{% url 'social:begin' 'github' %}">Connect to GitHub</a>
-  {% endif %}
+  </ul>
 
   <h3>Twitter</h3>
   {% if twitter_login %}

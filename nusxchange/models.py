@@ -38,7 +38,6 @@ class Profile(models.Model):
         (music, 'Music'),
         (sph, 'Public Health'),
         (spp, 'Public Policy'),
-        (fos, 'Science'),
         (yale, 'Yale-NUS'),
         (oth, 'Others'),
         )
@@ -95,7 +94,14 @@ class Profile(models.Model):
         default='OT',
         )
     interest = models.CharField(max_length=300, null = False, blank=True)
-    facebook_url = models.URLField(null = False, blank=True)
+    pu = models.CharField(max_length=300, null = False, blank = True)
+    facebook_url = models.URLField(null = False, blank=True, )
+    profile_pic = models.ImageField(
+        upload_to="profile_picture", 
+        blank=False, 
+        null = False, 
+        default="profile_picture/no-img.jpg",
+        )
     def __str__(self):  # __unicode__ for Python 2
         return self.user.username
 
@@ -115,6 +121,7 @@ class ProfileForm (ModelForm):
         'major', 
         'nationality',
         'interest',
+        'profile_pic',
         'facebook_url',
         ]
 #define signals so our Profile model will be automatically created/updated 

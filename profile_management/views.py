@@ -17,6 +17,8 @@ def edit_profile(request):
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
+            if 'profile_pic' in request.FILES:
+                request.user.profile.profile_pic = request.FILES['profile_pic']
             profile_form.save()
             messages.success(request, 'Your profile was successfully updated!')
             return redirect('profile:myhome')
@@ -32,7 +34,7 @@ def edit_profile(request):
 
 @login_required
 def get_summary(request):
-    return render(request, 'profile_management/home.html')
+    return render(request, 'profile_management/home/index.html')
 
 @login_required
 def social_auth_management(request):

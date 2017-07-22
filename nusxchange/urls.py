@@ -19,7 +19,8 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from login_and_signup import views as login_views
 from profile_management import views as profile_view
-
+from django.conf import settings
+from django.conf.urls.static import static
 # LOGIN_URL = 'login'
 # LOGOUT_URL = 'logout'
 # LOGIN_REDIRECT_URL = 'home'
@@ -35,4 +36,4 @@ urlpatterns = [
     url(r'^profile/', include('user_profile.urls')), #to visit others' profiles
     url(r'^admin/', admin.site.urls), 
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
