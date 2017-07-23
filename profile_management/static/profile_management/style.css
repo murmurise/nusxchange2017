@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Open+sans);
+/*@import url(https://fonts.googleapis.com/css?family=Open+sans);
 @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display);
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display);*/
 .snip1515 {
   font-family: 'Open Sans', Arial, sans-serif;
   /*position:absolute;
@@ -114,8 +114,15 @@
 
 /*override the color of the buttons*/
 a:visited{
-  color: var(--visited)
+  color: var(--visited);
+  text-decoration:none;
 }
+
+a:-webkit-any-link {
+    text-decoration:none;
+    color: var(--visited);
+}
+
 
 /*normal display*/
 .fill {
@@ -130,6 +137,7 @@ button {
   color: var(--color);
   -webkit-transition: 0.25s;
   transition: 0.25s;
+  width: 8em
 }
 button:hover, button:focus {
   border-color: var(--hover);
@@ -141,10 +149,19 @@ button {
   border: 2px solid;
   font: inherit;
   line-height: 1;
-  margin: .5em;
+  margin-left:.6em;
+  margin-right:.6em;
+  margin-bottom: 1.2em;
   padding: 1em 2em;
 }
 
 body {
   background-color: #212121;
+}
+
+#find{
+  padding: 1em 1em;
+  width: 17.5em;
+  margin-bottom: .4em;
+
 }

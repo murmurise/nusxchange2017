@@ -72,11 +72,23 @@
         {% endif %}
     </div>
 <!-- logout nad change setting buttons -->
-    <div class="row">
-        <a href="{% url 'logout'%}"><button class="fill" type="submit">Logout</a></button>
+    <div class="container">
+      <div class="row">
 
-        <a href="{% url 'profile:settings'%}"><button class="fill" type="submit">Settings</a></button>
+          <a href="{% url 'logout'%}"><button class="fill " type="submit">Logout</a></button>
+          <a href="{% url 'profile:settings'%}"><button class="fill " type="submit">Settings</a></button>
+
+      </div>
+
+
+      <div>
+          <a href="#"><span><button class="fill col-sm-12" type="submit" id="find"> {% if user.profile.university is "National University of Singapore"%}Find Exchange Students in My Faculty
+          {% else %}Find Local Students in My Faculty{% endif %}</a></button></span>
+        
+      </div>
     </div>
+
+
   </figcaption>
 </figure>
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
