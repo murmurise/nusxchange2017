@@ -17,8 +17,8 @@ def edit_profile(request):
         profile_form = ProfileForm(request.POST, instance=request.user.profile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
-            if 'profile_pic' in request.FILES:
-                request.user.profile.profile_pic = request.FILES['profile_pic']
+            if 'profile_picture' in request.FILES:
+                request.user.profile.profile_picture = request.FILES['profile_picture']
             profile_form.save()
             messages.success(request, 'Your profile was successfully updated!')
             return redirect('profile:myhome')

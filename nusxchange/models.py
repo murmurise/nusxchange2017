@@ -94,14 +94,15 @@ class Profile(models.Model):
         default='OT',
         )
     interest = models.CharField(max_length=300, null = False, blank=True)
-    pu = models.CharField(max_length=300, null = False, blank = True)
+    university = models.CharField(max_length=300, null = False, blank = True)
     facebook_url = models.URLField(null = False, blank=True, )
-    profile_pic = models.ImageField(
+    profile_picture = models.ImageField(
         upload_to="profile_picture", 
         blank=False, 
         null = False, 
         default="profile_picture/no-img.jpg",
         )
+
     def __str__(self):  # __unicode__ for Python 2
         return self.user.username
 
@@ -121,8 +122,9 @@ class ProfileForm (ModelForm):
         'major', 
         'nationality',
         'interest',
-        'profile_pic',
+        'profile_picture',
         'facebook_url',
+        'university',
         ]
 #define signals so our Profile model will be automatically created/updated 
 # when we create/update User instances.hooking the create_user_profile and 
