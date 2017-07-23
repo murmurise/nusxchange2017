@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <title>Profile Settings</title>
   <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
-<!--   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
- -->{% load static %}
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+{% load static %}
   <link rel="stylesheet" href="{% static 'profile_management/settings.css' %}">
   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
@@ -51,7 +51,8 @@
                 {{ field }}
               </div>
             </div>
-          {% endfor %}           {% for field in form %}
+          {% endfor %}           
+          {% for field in form %}
             <div class="form-group clearfix">
               <div class="col-sm-12 control-label">
                 {{ field.errors }}
