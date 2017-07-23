@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.db import transaction
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from login_and_signup.forms import UserForm, ProfileForm
+from .forms import UserForm, ProfileForm
 from django.contrib import messages
 
 

@@ -1,12 +1,67 @@
-{%extends 'nusxchange/base.html'%}
 {% block content %}
-	<h2>Homepage</h2>
-		<p>Hello {{ user.username }}!</p>
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Settings</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<!--   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+ -->{% load static %}
+  <link rel="stylesheet" href="{% static 'profile_management/settings.css' %}">
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  
+</head>
+<body>
+  <div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <div class="profile-holder">
+        <div class="profile-people-holder" border-bottom-color="#FFF">
+          <div class="profile-name">
+            <h3>Profile settings</h3>
+				<p>Hello {{ user.username }}!</p>
+            <p>Update your profile password and notifications settings</p>
+          </div>
+        </div>
+        <div class="profile-settings-holder">
 	
 	<form method="post" enctype="multipart/form-data">
   	{% csrf_token %}
-  	{{ user_form.as_p }}
- 	{{ profile_form.as_p }}
+          {% for field in user_form %}
+            <div class="form-group clearfix">
+              <div class="col-sm-12 control-label">
+                {{ field.errors }}
+                {{ field.label_tag }}
+              </div>
+              <div class="col-sm-12">
+                {{ field }}
+              </div>
+            </div>
+          {% endfor %}
+
+          {% for field in profile_form %}
+            <div class="form-group clearfix">
+              <div class="col-sm-12 control-label">
+                {{ field.errors }}
+                {{ field.label_tag }}
+              </div>
+              <div class="col-sm-12">
+                {{ field }}
+              </div>
+            </div>
+          {% endfor %}           {% for field in form %}
+            <div class="form-group clearfix">
+              <div class="col-sm-12 control-label">
+                {{ field.errors }}
+                {{ field.label_tag }}
+              </div>
+              <div class="col-sm-12">
+                {{ field }}
+              </div>
+            </div>
+          {% endfor %}         
 
  	<!-- social_auth -->
  	<h3>Twitter</h3>
@@ -40,7 +95,8 @@
 	{% else %}
  		<a href="{% url 'social:begin' 'facebook' %}">Connect to Facebook</a><br><br>
 	{% endif %}
-  	<button type="submit">Save changes</button>
+  	<button type="submit" class="btn btn-default">Save changes</button>
 	</form>
 	
+</html>
 {% endblock %}

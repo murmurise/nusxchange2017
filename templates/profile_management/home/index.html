@@ -20,7 +20,7 @@
 <div class="col-sm-12">
   <figure class="snip1515 col-sm-6">
     <div class="profile-image">
-      <img src="{{ user.profile.profile_pic.url }}" "/>
+      <img src="{{ user.profile.profile_picture.url }}" "/>
     </div>
   
   <figcaption>
@@ -52,7 +52,6 @@
     <div class="profile-fields">
       <p>Accomodation: {{ user.profile.get_accomodation_display }}</p>
       <p>Birth Date: {{ user.profile.birth_date }}</p>
-      <p>School: {{ user.profile.get_school_display}}</p>
       <p>Nationality: {{ user.profile.get_nationality_display }}</p>
     </div>
 
