@@ -1,4 +1,159 @@
-<h1>this is an introduction of NUSXchanhge</h1>
-<button type="submit"><a href="{% url 'login'%}">Returning User</a></button>
-<br><br>
-<button type="submit"><a href="http://localhost:8000/signup">New User</a></button>
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-university,.fa-handshake-o,.fa-coffee {font-size:200px; color: orange;}
+</style>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top" >
+  <div class="w3-bar w3-deep-orange w3-card-2 w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-deep-orange" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#top" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a href="{% url 'login'%}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Returning User</a>
+    <a href="{% url 'signup:home'%}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">New User</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><p hidden>Link 3</p></a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"><p hidden>Link 4</p></a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-deep-orange w3-center" style="padding:128px 16px" id="top">
+  <h1 class="w3-margin w3-jumbo">NUSXchange</h1>
+  <p class="w3-xlarge">Find Your Foreign Friends</p>
+  <a href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" >About NUSXchange</a>
+  <a href="#" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Quick Start</a>  
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container w3-grey" id="about" >
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>What we do</h1>
+      <h5 class="w3-padding-32">National University of Singapore (NUS) hosts approximately 1.400 international students from 180 universities across the globe join the vibrant student community for at least one semester exchange. NUSXchange is here to help bridges the gap between the two groups efficiently and effectively by simply provide a way to find friends.</h5>
+    </div>
+  <div class="w3-third w3-center">
+      <i class="fa fa-university w3-padding-64 w3-text-deep-orange"></i>
+    </div>
+  </div>
+</div>
+<!--about section-->
+<div class="w3-container w3-black" style="padding:128px 16px" id="about" >
+  <h1 class="w3-center w3-text-white">Why you would love NUSXchange</h1>
+  <p class="w3-center w3-large"></p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-users w3-margin-bottom w3-jumbo w3-center w3-text-grey"></i>
+      <p class="w3-large w3-text-white">Real</p>
+      <p class="w3-text-white">Don't worry about fake identity anymore! All users in NUSXchange are registered NUS students verified with their matric number. </p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-diamond w3-margin-bottom w3-jumbo w3-center w3-text-grey"></i>
+      <p class="w3-large w3-text-white">Simple   &amp; Beautiful</p>
+      <p class="w3-text-white">With intuitive minimalist design, NUSXchange simply find you friends tailored to your profile!</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-money w3-margin-bottom w3-jumbo w3-center w3-text-grey"></i>
+      <p class="w3-large w3-text-white">Free of Charge</p>
+      <p class="w3-text-white">NUSXchange is, of course, free of charge. FOREVER. </p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-commenting-o w3-margin-bottom w3-jumbo w3-center w3-text-grey"></i>
+      <p class="w3-large w3-text-white">Growing</p>
+      <p class="w3-text-white">NUSXchange is still a  young service with the room for many more functionalities. Contribute your thoughts and be credited for the next awesome feature!</p>
+    </div>
+  </div>
+</div>
+<!-- Second Grid -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6 " style="vertical-align:middle;">
+      <h3>Start in 2 Minutes.</h3>
+      <p>All you'll do is to complete your profile.<br>NUSXchange will do the rest for you.</p>
+      <p><a href="{% url 'signup:home'%}" class="w3-button w3-black w3-margin-top"><i class="fa fa-paper-plane">&nbsp;</i> Start Filling my Profile</a></p>
+    </div>
+    <div class="w3-col m6">
+    {% load static %}
+     <img class="w3-image w3-round-large" src="{% static 'login_and_signup/profile-card-demo.jpg' %}" alt="profile-card-demo.jpg" width="700" height="394">
+     <!-- <i class="fa fa-handshake-o w3-padding-64 w3-text-deep-orange"></i> -->
+    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <i class="fa fa-quote-right " style="font-size:48px;color:Grey;"></i>
+    <h1 class="w3-margin w3-xlarge">A simple Hello is all you need to start a friendship.</h1>
+</div>
+
+
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTACT</h3>
+  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+  <div class="w3-row-padding" style="margin-top:64px">
+    <div class="w3-center">
+      <p><i class="fa fa-map-marker fa-fw w3-xxlarge w3-margin-right"></i> Singapore, Singapore</p>
+      <p><i class="fa fa-phone fa-fw w3-xxlarge w3-margin-right"></i> Phone: +65 8600 0000</p>
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: nusxchange@u.nus.edu</p>
+      <br>
+      <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-border" type="text" placeholder="Name" required="" name="Name"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Email" required="" name="Email"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required="" name="Subject"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Message" required="" name="Message"></p>
+        <p>
+          <button class="w3-button w3-black" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </p>
+      </form>
+    </div>
+    <div class="w3-half">
+      
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#top" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>

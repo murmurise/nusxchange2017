@@ -27,23 +27,21 @@
 <!-- priority: nickname > fname + lname(optional) > username -->
     <h3 id ="username"> Hello, 
       {%if user.profile.nickname%}
-        {{user.profile.nickname}} {{user.first_name}}
-      {%elif user.first_name%}
-        {{user.first_name}} {{user.last_name}}
-      {% else %}
-        {{user.username}}
-      {%endif%}!
+        {{user.profile.nickname}}
+      {%elif user.first_name%}{{user.first_name}}
+        {% if user.lastname%} {{user.last_name}}{% endif %}
+      {% else %}{{user.username}}{%endif%}
     </h3>
 <!-- major+faculty+univeristy -->
     <h4>
       {% if user.profile.major %}{{user.profile.major}}{% endif %}
       <br>{% if user.profile.school %}{{ user.profile.get_school_display}} {% endif %}
-      <br> {% if user.profile.pu %}{{ user.profile.pu}}{% endif %}
+      <br> {% if user.profile.university %}{{ user.profile.university}}{% endif %}
     </h4><br>
 <!-- user bio -->
     {% if user.profile.bio %}
-      <div class="user-bio">
-        <p>{{user.profile.bio }}</p> <br>
+      <div class="user-bio" style="text-align: center;">
+        <p>Bio: {{user.profile.bio }}</p> <br>
       </div>
     {% else %} <p>I'm a ninja. </p> <br>
     {% endif %}
@@ -82,8 +80,8 @@
 
 
       <div>
-          <a href="#"><span><button class="fill col-sm-12" type="submit" id="find"> {% if user.profile.university is "National University of Singapore"%}Find Exchange Students in My Faculty
-          {% else %}Find Local Students in My Faculty{% endif %}</a></button></span>
+          <a href="#"><span><button class="fill col-sm-12" type="submit" id="find"> {% if user.profile.university is "National University of Singapore"%}Find Foreign Friends!
+          {% else %}Find Local Friends!{% endif %}</a></button></span>
         
       </div>
     </div>
