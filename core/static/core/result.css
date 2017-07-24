@@ -1,0 +1,130 @@
+*{
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body{
+	background-color:#FFEFDE;
+	font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	margin:0;
+	padding:0;
+	height:100%;
+	width:100%;
+	text-align:left;
+	color:#000;
+	position:relative;
+}
+
+a{
+	-webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.wrapper{
+	width:450px;
+	margin:5% auto 0;
+	background-color:#FFFFFF;
+	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+  border-radius: 5px;
+
+}
+
+header{
+	text-align:right;
+	padding:10px;
+	margin-bottom:10px;
+	background-color:#ff8600;  
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+header a{
+	font-size:20px;
+	color:#FFFFFF;
+	width:40px;
+	height:40px;
+	line-height:40px;
+	margin-left:10px;
+	text-align:center;
+	display:inline-block;
+}
+
+header a:hover, .list-mode header a.hide-list:hover{
+	background-color:#000;
+}
+
+header a.hide-list{
+	background-color:#000;
+}
+
+.list-mode header a.hide-list{
+	background-color:#ff8600;
+}
+
+.list-mode header a.show-list{
+	background-color:#000;
+}
+
+.container:after{
+	content:"";
+	clear:both;
+	display:table;
+}
+
+.container{
+	padding:10px 0 10px 10px;
+	border-bottom-left-radius: 5px;
+   font-family: 'Open Sans', Arial, sans-serif;
+
+}
+
+.user-details{
+	visibility: hidden;
+	padding-left: 30% 
+}
+
+.wrapper .box{
+	float:left;
+	width:100px;
+	height:100px;
+	margin:0 10px 10px 0;
+	background-color:#e8e8e8;
+	-webkit-transition:all 1.0s ease;
+	-moz-transition:all 1.0s ease;
+	transition:all 1.0s ease;
+	transition:all 1.0s ease;
+  border-radius: 5px;
+
+  
+}
+
+.wrapper.list-mode .container{
+	padding-right:10px;
+}
+
+.wrapper.list-mode .box{
+	width:100%;
+  border-radius: 5px;
+
+}
+.profile-pic{
+  border-radius: 5px;
+  float: left;
+}
+li{
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+ul{
+	margin-top: -10px;
+}
+.username {
+	font-weight: bold;
+}

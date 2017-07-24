@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Change from box to list</title>
+  
+  
+  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+  {%load static%}
+  <link rel="stylesheet" href="{% static 'core/result.css'%}">
+
+  
+</head>
+
+<body>
+  <div class="wrapper">
+ 	<header>
+    	<a href="javascript:void(0)" class="show-list"><i class="fa fa-th-list"></i></a>
+        <a href="javascript:void(0)" class="hide-list"><i class="fa fa-th"></i></a>
+    </header>
+    <div class="container">
+    	<div class="box"> 
+        <div><img class="profile-pic" src="{% static 'core/profile-pic-demo-sam.jpg' %}" alt="profile-1.jpg" height="100px" width="100px"></div>
+        <div class="user-details" id="user-details-sam" >
+            <div class="username"><p>Sam</p></div>
+          <ul>
+            <li>Age: 22</li>
+            <li>Major: </li>
+            <li>Accomodation: Eusoff Hall</li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="box"> 
+        <div><img class="profile-pic" src="{% static 'core/profile-pic-demo-jinyi.jpg' %}" alt="profile-1.jpg" height="100px" width="100px"></div>
+        <div class="user-details list-mode" id="user-details-jinyi">
+            <div class="username"><p>Jinyi</p></div>
+          <ul>
+            <li>Age: 21</li>
+            <li>Major: Economics</li>
+            <li>Accomodation: Tembusu College</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="box"> 
+        <div><img class="profile-pic" src="{% static 'core/profile-pic-demo-ben.jpg' %}" alt="profile-1.jpg" height="100px" width="100px"></div>
+        <div class="user-details" id="user-details-ben">
+            <div class="username"><p>Ben</p></div>
+          <ul>
+            <li>Age: 25</li>
+            <li>Major: Literature</li>
+            <li>Accomodation: Off-campus</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="{% static 'core/result.js'%}"></script>
+
+</body>
+</html>

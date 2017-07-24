@@ -19,5 +19,6 @@ from django.contrib import admin
 from core import views 
 
 urlpatterns = [
-    url(r'^$', views.home, name='home')
+    url(r'^$', views.home, name='home'),
+    url(r'^result/$', views.result, name='result'),    
 ]

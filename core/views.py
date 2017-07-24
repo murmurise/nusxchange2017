@@ -9,3 +9,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def home(request):
     return render(request, 'core/lookup.html')
+
+@login_required
+def result(request):
+    return render(request, 'core/result.html')
