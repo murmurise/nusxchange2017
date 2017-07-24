@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^oauth/', include('social_django.urls', namespace='social')), 
     url(r'^me/', include('profile_management.urls', namespace = 'profile')),
     url(r'^profile/', include('user_profile.urls')), #to visit others' profiles
+    url(r'^core/', include('core.urls', namespace='core')), #search users by categories
     url(r'^admin/', admin.site.urls), 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

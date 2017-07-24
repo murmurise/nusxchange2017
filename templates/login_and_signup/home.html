@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>NUSXchange</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{%load static%}
+<link rel="stylesheet" href="{% static 'login_and_signup/w3.css' %}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,7 +40,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
   <h1 class="w3-margin w3-jumbo">NUSXchange</h1>
   <p class="w3-xlarge">Find Your Foreign Friends</p>
   <a href="#about" class="w3-button w3-black w3-padding-large w3-large w3-margin-top" >About NUSXchange</a>
-  <a href="#" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Quick Start</a>  
+  <a href="{% url 'login'%}" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Quick Start</a>  
 </header>
 
 <!-- First Grid -->

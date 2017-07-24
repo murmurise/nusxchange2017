@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'signup',
     'profile_management',
     'user_profile',
+    'core',
 
 ]
 
