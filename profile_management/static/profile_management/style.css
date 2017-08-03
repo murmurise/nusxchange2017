@@ -142,6 +142,7 @@ button {
 button:hover, button:focus {
   border-color: var(--hover);
   --visited: #fff;
+  color: #fff;
 }
 /*basic button styles*/
 button {
